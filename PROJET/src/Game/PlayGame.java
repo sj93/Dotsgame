@@ -24,9 +24,10 @@ public class PlayGame {
 		while (true){
 			Dots_and_Boxes db = new Dots_and_Boxes ();
 			Points_et_Boites2 pt = new Points_et_Boites2();
+			db.adversairy();
 			mode();
 			if(mode==0){
-				db.adversairy();
+			//	db.adversairy();
 				db.size();
 				//db.lignepointille();
 				db.ID();
@@ -47,8 +48,9 @@ public class PlayGame {
 					}
 				  
 		 }if(mode==1){
-			pt.size();
+			pt.size();			
 			pt.point();
+			pt.IDplayer();
 			pt.ligne();
 		  }
 		

@@ -10,7 +10,7 @@ public class Dots_and_Boxes {
 	 static int p;//pour nombre de ligne pointillée
 	 static String[] player= new String[2];
      static int[]score = new int [2];
-     
+ 
      
    Dots_and_Boxes(){}
 
@@ -111,7 +111,7 @@ public class Dots_and_Boxes {
 			
 // afficher les lignepleines	
 		
-	public static void lignes(boolean res){
+	public static void lignes(boolean res1){
 		Scanner scan = new Scanner(System.in);
 		int x1,y1,x2,y2;		
 		System.out.println("draw the line between two points");
@@ -165,33 +165,49 @@ public class Dots_and_Boxes {
 			}			
 		}if(x1==x2){
 				tableau[2*x1-1][y1*2]="__";
-				if(x1<i && tableau[2*x1][y1*2-1].equals("|") && tableau[2*x1+1][y1*2].equals("__") && tableau[2*x1][y1*2+1].equals("|")){
-					if(res==true){
-						tableau[2*x1][y1*2]="1 ";score[0]++;
+				if(x1<i && tableau[2*x1][y1*2-1].equals("| ") && tableau[2*x1+1][y1*2].equals("__") && tableau[2*x1][y1*2+1].equals("| ")){
+					if(res1==true){
+						tableau[2*x1][y1*2]="1";
+						score[0]++;
+						res1 = true;
 					}else{
-						tableau[2*x1][y1*2]="2 ";score[1]++;
+						tableau[2*x1][y1*2]="2";
+						score[1]++;
+						res1 = false;
 					}
-				}if(x1<=i && tableau[2*x1-2][y1*2-1].equals("|") && tableau[2*x1-3][y1*2].equals("__") && tableau[2*x1-2][y1*2+1].equals("|")){
-					if(res==true){
-						tableau[2*x1-2][y1*2]="1 "; score[0]++;
+				}if(x1<=i && tableau[2*x1-2][y1*2-1].equals("| ") && tableau[2*x1-3][y1*2].equals("__") && tableau[2*x1-2][y1*2+1].equals("| ")){
+					if(res1==true){
+						tableau[2*x1-2][y1*2]="1"; 
+						score[0]++;
+						res1 = true;
 					}else{
-						tableau[2*x1-2][y1*2]="2 "; score[1]++;
+						tableau[2*x1-2][y1*2]="2";
+						score[1]++;
+						res1 = false;
 					}
 				}
 				
 		}if(y1==y2){
 			tableau[x1*2][y1*2-1]="| "; 
-			if(y1<i && tableau[2*x1-1][y1*2].equals("__") && tableau[2*x1+1][y1*2].equals("__") && tableau[2*x1][y1*2+1].equals("|")){
-				if(res==true){
-					tableau[2*x1][y1*2]="1";score[0]++;
+			if(y1<i && tableau[2*x1-1][y1*2].equals("__") && tableau[2*x1+1][y1*2].equals("__") && tableau[2*x1][y1*2+1].equals("| ")){
+				if(res1==true){
+					tableau[2*x1][y1*2]="1";
+					score[0]++;
+					res1=true;
 				}else{
-					tableau[2*x1][y1*2]="2"; score[1]++;
+					tableau[2*x1][y1*2]="2"; 
+					score[1]++;
+					res1=false;
 				}
-			}if(y1<i && tableau[2*x1-1][y1*2-2].equals("__") && tableau[2*x1+1][y1*2-2].equals("__") && tableau[2*x1][y1*2-3].equals("|")){
-				if(res==true){
-					tableau[2*x1][y1*2-2]="1";score[0]++;
+			}if( y1<=i && tableau[2*x1-1][y1*2-2].equals("__") && tableau[2*x1+1][y1*2-2].equals("__") && tableau[2*x1][y1*2-3].equals("| ")){
+				if(res1==true){
+					tableau[2*x1][y1*2-2]="1";
+					score[0]++;
+					res1=true;
 				}else{
-					tableau[2*x1][y1*2-2]="2"; score[1]++;
+					tableau[2*x1][y1*2-2]="2";
+					score[1]++;
+					res1 = false;
 				}
 			}
 		} affichertab(tableau);
@@ -207,31 +223,24 @@ public class Dots_and_Boxes {
 			 System.out.print("please chose a  number for dottedline");
 			 Scanner scan = new Scanner(System.in);
 			 l = scan.nextInt();
-			// p=l;
 			 while(l>2*(i-1)*i){
 				 System.out.print(" the  number should be under"+2*(i-1)*i);
 				 System.out.print("please chose the  number for dottedline");
 				 l = scan.nextInt();				
 			 } int n=0; 
 			
-			 // while(n<l){
-				   int ligne = (int)(Math.random() * (i))+1 ; 
-				   int colonne= (int)(Math.random() * (i))+1 ; 
-				   System.out.print(ligne);
-				  while( tableau[ligne][colonne]!=""){
-				        ligne = (int)Math.floor(Math.random() * (i))+1 ; 				  
-				        colonne= (int)Math.floor(Math.random() * (i))+1 ;
-				   } 
-					    if(ligne%2==1 && colonne%2==0){
-					    	tableau[ligne][colonne]="--";
-					    }if(ligne%2==0 && colonne%2==1){
-						   tableau[ligne][colonne]=":";
-					      }  
-				 
-			//}affichertab(tableau);
+			  while(n<l){
+				   int ligne = (int)(Math.random() * (i-1))+1 ;				  
+				   if(ligne%2==1 && (ligne+1)%2==0){
+					    	tableau[ligne][ligne+1]="---";
+					    }if(ligne%2==0 && (ligne+1)%2==1){
+						   tableau[ligne][ligne+1]=":";
+					      
+				  }n++;
+			}affichertab(tableau);
 			
-		}*/
-
+		}
+*/
 	
 
 	
@@ -246,25 +255,26 @@ public class Dots_and_Boxes {
 				System.out.println( "\n"+player[0]+" plays");
 				System.out.println();
 				lignes(res);
+				         
 			}if(n!=0 && n%2==1){
 				res=false;
 				System.out.println();
 				System.out.println(player[1]+ " plays");
 				lignes(res);
-			  }n++;			
-		}if(n==2*(i-1)*i){
-			if(score[0]+score[1]==(i-1)*(i-1)){
-				if(score[0]<score[1]){
-					System.out.println("the winner is"+player[1]);
 				}
-				if(score[0]==score[1]){
-					System.out.println("equality, no winner");
-				}
-				if(score[0]>score[1]){
-					System.out.println("the winner is"+player[0]);
-				}
-			}
+			 
+				n++;			
 		}
+		if(score[0]<score[1]){
+			System.out.println("the winner is"+player[1]);
+		 }
+		 if(score[0]==score[1]){
+			 System.out.println("equality, no winner");
+		 }
+		 if(score[0]>score[1]){
+			 System.out.println("the winner is  "+player[0]);
+		 }
+		
 	}	
 	
 
@@ -275,9 +285,9 @@ public class Dots_and_Boxes {
 		//adversairy();
 		size();		
 		ID();
-	//	affichepoint();
+		affichepoint();
 	//	lignepointille();
-	//	turn();
+		turn();
 		
 
 		System.out.print("\n"+"restart?  0 for yes; 1 for no");
