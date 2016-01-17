@@ -7,13 +7,13 @@ public class PlayGame {
 
 	 // choisir le mode de jeux;
 	 public static int mode(){
-		 System.out.print("chose the type: console ou graphic, 0 for console, 1 for graphic ");
+		 System.out.print("choose the type: console ou graphic, 0 for console, 1 for graphic ");
 		 Scanner scan = new Scanner(System.in);
 		 int m = scan.nextInt();
 		 if(m==0){ 
-			 System.out.println(" you chose the console mode ");
+			 System.out.println(" you choose the console mode ");
 	     }if(m==1){
-	    	 System.out.println(" you chose the graphic mode ");
+	    	 System.out.println(" you choose the graphic mode ");
 	     }mode =m;
 		return m;
 	 }		 
