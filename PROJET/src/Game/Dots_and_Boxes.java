@@ -55,11 +55,11 @@ public class Dots_and_Boxes {
 	 public static int size(){
 		 Scanner scan = new Scanner(System.in);
 		 int s;
-		 System.out.print("please chose the size");
+		 System.out.print("please choose the size");
 		 s = scan.nextInt();
 		 while(s<3 || s>6){
 			 System.out.print("the number should be between 3 and 6 ");
-			 System.out.print("please chose again the size");
+			 System.out.print("please choose again the size");
 			 s = scan.nextInt();
 		 }
 		 i=s;
@@ -220,7 +220,7 @@ public class Dots_and_Boxes {
 		
 		/*public static void lignepointille(){
 			 int l;
-			 System.out.print("please chose a  number for dottedline");
+			 System.out.print("please choose a  number for dottedline");
 			 Scanner scan = new Scanner(System.in);
 			 l = scan.nextInt();
 			 while(l>2*(i-1)*i){
