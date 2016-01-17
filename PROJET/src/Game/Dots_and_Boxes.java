@@ -9,26 +9,11 @@ public class Dots_and_Boxes {
 	 static int i;//pour la taille
 	 static int p;//pour nombre de ligne pointillée
 	 static String[] player= new String[2];
-     static int mode;
      static int[]score = new int [2];
-     static int sp1=0;
+     
      
    Dots_and_Boxes(){}
 
- // choisir le mode de jeux;
-	 public static int mode(){
-		 System.out.print("chose the type: console ou graphic, 0 for console, 1 for graphic ");
-		 Scanner scan = new Scanner(System.in);
-		 int m = scan.nextInt();
-		 if(m==0){ 
-			 System.out.println(" you chose the console mode ");
-	     }if(m==1){
-	    	 System.out.println(" you chose the graphic mode ");
-	     }mode =m;
-		return m;
-			 
-		 
-	 }
 	 
 // choisir contre joueur ou ordinateur
 	 public static void adversairy(){
@@ -195,18 +180,18 @@ public class Dots_and_Boxes {
 				}
 				
 		}if(y1==y2){
-			tableau[x1*2][y1*2-1]="|"; 
-			if(tableau[2*x1-2][y1*2+1].equals("__") && tableau[2*x1][y1*2+1].equals("__") && tableau[2*x1-1][y1*2+2].equals("|")){
+			tableau[x1*2][y1*2-1]="| "; 
+			if(y1<i && tableau[2*x1-1][y1*2].equals("__") && tableau[2*x1+1][y1*2].equals("__") && tableau[2*x1][y1*2+1].equals("|")){
 				if(res==true){
-					tableau[2*x1-1][y1*2+1]="1";score[0]++;
+					tableau[2*x1][y1*2]="1";score[0]++;
 				}else{
-					tableau[2*x1-1][y1*2+1]="2"; score[1]++;
+					tableau[2*x1][y1*2]="2"; score[1]++;
 				}
-			}if(tableau[2*x1-2][y1*2-1].equals("__") && tableau[2*x1][y1*2-1].equals("__") && tableau[2*x1-1][y1*2-2].equals("|")){
+			}if(y1<i && tableau[2*x1-1][y1*2-2].equals("__") && tableau[2*x1+1][y1*2-2].equals("__") && tableau[2*x1][y1*2-3].equals("|")){
 				if(res==true){
-					tableau[2*x1-1][y1*2+1]="1";score[0]++;
+					tableau[2*x1][y1*2-2]="1";score[0]++;
 				}else{
-					tableau[2*x1-1][y1*2+1]="2"; score[1]++;
+					tableau[2*x1][y1*2-2]="2"; score[1]++;
 				}
 			}
 		} affichertab(tableau);
@@ -217,7 +202,7 @@ public class Dots_and_Boxes {
 		
 // afficher les lignes en pointillées
 		
-	/*	public static void lignepointille(){
+		/*public static void lignepointille(){
 			 int l;
 			 System.out.print("please chose a  number for dottedline");
 			 Scanner scan = new Scanner(System.in);
@@ -229,10 +214,11 @@ public class Dots_and_Boxes {
 				 l = scan.nextInt();				
 			 } int n=0; 
 			
-			  while(n<l){
-				   int ligne = (int)(Math.random() * (i*2-1))+1 ; 
-				   int colonne= (int)Math.floor(Math.random() * (i))+1 ; 
-				   while( tableau[ligne][colonne]!=""){
+			 // while(n<l){
+				   int ligne = (int)(Math.random() * (i))+1 ; 
+				   int colonne= (int)(Math.random() * (i))+1 ; 
+				   System.out.print(ligne);
+				  while( tableau[ligne][colonne]!=""){
 				        ligne = (int)Math.floor(Math.random() * (i))+1 ; 				  
 				        colonne= (int)Math.floor(Math.random() * (i))+1 ;
 				   } 
@@ -242,10 +228,10 @@ public class Dots_and_Boxes {
 						   tableau[ligne][colonne]=":";
 					      }  
 				 
-			}affichertab(tableau);
+			//}affichertab(tableau);
 			
-		}
-*/
+		}*/
+
 	
 
 	
@@ -257,7 +243,7 @@ public class Dots_and_Boxes {
 		while(n<2*(i-1)*i){
 			if(n==0 || n%2==0){
 				res=true;
-				System.out.println( player[0]+" plays");
+				System.out.println( "\n"+player[0]+" plays");
 				System.out.println();
 				lignes(res);
 			}if(n!=0 && n%2==1){
@@ -266,7 +252,7 @@ public class Dots_and_Boxes {
 				System.out.println(player[1]+ " plays");
 				lignes(res);
 			  }n++;			
-		}while(n==2*(i-1)*i){
+		}if(n==2*(i-1)*i){
 			if(score[0]+score[1]==(i-1)*(i-1)){
 				if(score[0]<score[1]){
 					System.out.println("the winner is"+player[1]);
@@ -285,16 +271,16 @@ public class Dots_and_Boxes {
 	
 	
 	public static void main(String[] args) {
-	    mode();
+	   
 		//adversairy();
-		size();
-		//lignepointille();
+		size();		
 		ID();
-		affichepoint();
-		turn();
+	//	affichepoint();
+	//	lignepointille();
+	//	turn();
 		
 
-		System.out.println("restart?  0 for yes; 1 for no");
+		System.out.print("\n"+"restart?  0 for yes; 1 for no");
 		 Scanner scan = new Scanner(System.in);
 		 int r = scan.nextInt();
 		 if(r==1){
@@ -302,13 +288,12 @@ public class Dots_and_Boxes {
 			 }
 		 if(r==0){
 			 System.out.println("restart");	
-			mode();
 			//adversairy();
 			size();
 			//lignepointille();
 				ID();
 				affichepoint();
-				turn();
+			//	turn();
 		 } 
 		
 	   

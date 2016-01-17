@@ -88,9 +88,6 @@ public class Points_et_Boites2 {
 		}*/
 	}	
 	public static void main(String[] args) {
-		StdDraw.setXscale(-10,20);
-	    StdDraw.setYscale(-10,20);
-	    StdDraw.text(2,18,"Dots_and_Boxes");
 	    IDplayer();
 	    size();
 	    point();
