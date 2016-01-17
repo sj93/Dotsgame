@@ -41,9 +41,11 @@ public class PlayGame {
 				 if(r==1){
 					 System.out.println("gameOver");
 					 start =false;
+					 break;
 				 }
 				 if(r==0){
 					 System.out.println("restart");	
+					 db.mark();
 					 start = true;
 					}
 				  
@@ -51,7 +53,7 @@ public class PlayGame {
 			pt.size();			
 			pt.point();
 			pt.IDplayer();
-			pt.ligne();
+			//pt.ligne();
 		  }
 		
 	
