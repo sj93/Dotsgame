@@ -169,21 +169,21 @@ public class Dots_and_Boxes {
 					if(res1==true){
 						tableau[2*x1][y1*2]="1";
 						score[0]++;
-						res1 = true;
+						
 					}else{
 						tableau[2*x1][y1*2]="2";
 						score[1]++;
-						res1 = false;
+						
 					}
 				}if(x1<=i && tableau[2*x1-2][y1*2-1].equals("| ") && tableau[2*x1-3][y1*2].equals("__") && tableau[2*x1-2][y1*2+1].equals("| ")){
 					if(res1==true){
 						tableau[2*x1-2][y1*2]="1"; 
 						score[0]++;
-						res1 = true;
+						
 					}else{
 						tableau[2*x1-2][y1*2]="2";
 						score[1]++;
-						res1 = false;
+						
 					}
 				}
 				
@@ -193,21 +193,21 @@ public class Dots_and_Boxes {
 				if(res1==true){
 					tableau[2*x1][y1*2]="1";
 					score[0]++;
-					res1=true;
+					
 				}else{
 					tableau[2*x1][y1*2]="2"; 
 					score[1]++;
-					res1=false;
+					
 				}
 			}if( y1<=i && tableau[2*x1-1][y1*2-2].equals("__") && tableau[2*x1+1][y1*2-2].equals("__") && tableau[2*x1][y1*2-3].equals("| ")){
 				if(res1==true){
 					tableau[2*x1][y1*2-2]="1";
 					score[0]++;
-					res1=true;
+					
 				}else{
 					tableau[2*x1][y1*2-2]="2";
 					score[1]++;
-					res1 = false;
+					
 				}
 			}
 		} affichertab(tableau);
