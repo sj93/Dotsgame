@@ -27,14 +27,11 @@ public class PlayGame {
 			db.adversairy();
 			mode();
 			if(mode==0){
-			//	db.adversairy();
 				db.size();
-				//db.lignepointille();
-				db.ID();
 				db.affichepoint();
+				db.lignepointille();
+				db.ID();
 				db.turn();
-				
-
 				System.out.println("restart?  0 for yes; 1 for no");
 				 Scanner scan = new Scanner(System.in);
 				 int r = scan.nextInt();
@@ -52,8 +49,11 @@ public class PlayGame {
 		 }if(mode==1){
 			pt.size();			
 			pt.point();
-			pt.IDplayer();
+			pt.affichepoint();
+			pt.IDplayer();			
 			//pt.ligne();
+			pt.turn1();
+			//pt.turn();
 		  }
 		
 	

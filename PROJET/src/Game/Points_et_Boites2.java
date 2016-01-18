@@ -8,6 +8,7 @@ public class Points_et_Boites2 {
 	static String [][]tableau; 
 	static int i;
 	static int[]score = new int [2];
+	
 	Points_et_Boites2(){}
 
 // ID de joueur 
@@ -18,6 +19,14 @@ public class Points_et_Boites2 {
 	}
 
 //score
+	public static int[]mark(){
+	 int[]s=new int[2];
+	 s[0]=0;
+	 s[1]=0;
+	 score = s;
+	 return s;
+	}
+
 	 public static void afficherscore(int[]score){
 		 String str1 = Integer.toString(score[0]);
 		 String str2 = Integer.toString(score[1]);
@@ -74,7 +83,29 @@ public class Points_et_Boites2 {
 					}	tableau = tab;
 						return tab;	
 				}
-	 
+
+				
+//ligne				
+	public static void ligne(){
+		while(true){ 
+			if(StdDraw.mousePressed()) { 
+				int	x1 =(int) StdDraw.mouseX();
+				int y1 = (int) StdDraw.mouseY();			
+				if(x1<i*2-1 && x1>=0 && y1<i*2-1 && y1>=0){
+					if(x1%2==0 && y1%2==1){
+						StdDraw.setPenColor(StdDraw.RED);
+						StdDraw.line(x1,y1-0.5,x1,y1+0.5);
+						
+					    }if(x1%2==1 && y1%2==0){
+							tableau[x1][y1]="*";
+							StdDraw.setPenColor(StdDraw.RED);
+							StdDraw.line(x1-0.5,y1,x1+0.5,y1);
+						  }
+				   }
+			}
+		}
+	}
+				
 // affiche les lignes	
 	public static void ligne(boolean res){
 		while(true){ 
@@ -139,11 +170,25 @@ public class Points_et_Boites2 {
       }
 	 
 // tour de joueur
+	public static void turn1(){
+		int n=0;
+		while(n<2*(i-1)*i){			
+			if(n%2==0){
+				StdDraw.text(-6,n,"player 1 plays");
+				ligne();
+			}if(n%2==1){
+				StdDraw.text(-6,n,"player 2 plays");
+				ligne();
+			}
+		}
+	}	
 	public static void turn(){
 		int n=0;
 		boolean res;
-		while(n<2*(i-1)*i){			
-			if(n%2==0){
+		res=true;
+		StdDraw.text(-6,n,"player 1 plays");
+		ligne(res);
+	 do {  if(n%2==0){
 				res=true;
 				StdDraw.text(-6,n,"player 1 plays");
 				ligne(res);
@@ -154,8 +199,8 @@ public class Points_et_Boites2 {
 				ligne(res);
 				
 			 }n++;
-							
-		}if(score[0]<score[1]){
+	 				
+	 }	while(n<2*(i-1)*i);	if(score[0]<score[1]){
 			 StdDraw.text(3,10,"the winner is player 2");
 		 }if(score[0]==score[1]){
 			  StdDraw.text(3,11,"equality");
@@ -170,8 +215,9 @@ public class Points_et_Boites2 {
 	    point();
 	    affichepoint();
 	    IDplayer();
-	  //  ligne();
-	    turn();
+	   // ligne();
+	//    turn();
+	    turn1();
 	    
 	 }
 }
